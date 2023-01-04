@@ -12,6 +12,7 @@
     <modules>
         <module>spring</module>
         <module>springmvc</module>
+        <module>jdbc_template</module>
     </modules>
 
     <properties>
@@ -29,7 +30,12 @@
                 <mysql.version>8.0.31</mysql.version>
                 <c3p0.version>0.9.5.5</c3p0.version>
                 <druid.version>1.2.15</druid.version>
+                <servlet.version>6.0.0</servlet.version>
+                <jackson.version>2.14.1</jackson.version>
+                <lombok.version>1.18.24</lombok.version>
                 <javax.annotation-api.version>1.3.2</javax.annotation-api.version>
+                <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
+                <maven-failsafe-plugin.version>3.0.0-M7</maven-failsafe-plugin.version>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -41,7 +47,39 @@
         <dependencies>
             <dependency>
                 <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.servlet</groupId>
+                <artifactId>jakarta.servlet-api</artifactId>
+                <version>${servlet.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
                 <version>${spring.version}</version>
             </dependency>
             <dependency>
@@ -78,5 +116,22 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>${maven-failsafe-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
 </project>
