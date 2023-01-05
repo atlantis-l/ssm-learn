@@ -10,7 +10,7 @@
     </parent>
 
     <modules>
-        <module>spring_datasource</module>
+        <module>spring-datasource</module>
     </modules>
 
     <packaging>pom</packaging>
