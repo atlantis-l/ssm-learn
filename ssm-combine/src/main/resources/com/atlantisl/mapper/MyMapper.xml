@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.atlantisl.mapper.MyMapper">
+
+    <!--sql语句抽取-->
+    <sql id="selectUser">
+        select *
+        from user
+    </sql>
+
+    <select id="findByCondition" parameterType="User" resultType="User">
+        <include refid="selectUser"/>
+        <where>
+            <if test="id != 0">
+                and id = #{id}
+            </if>
+            <if test="name != null">
+                and `name` = #{name}
+            </if>
+            <if test="age != 0">
+                and age = #{age}
+            </if>
+        </where>
+    </select>
+
+</mapper>

@@ -25,7 +25,7 @@ public class UserController {
     @GetMapping("/quick")
     @ResponseBody
     public User1 quick() {
-        int a = 1 / 0;
+//        int a = 1 / 0;
         return User1.builder().name("dachuan").age(24).build();
     }
 }
