@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--配置数据源-->
+    <!--    <context:property-placeholder location="classpath:jdbc.properties"/>-->
+
+    <!--    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
+    <!--        <property name="driverClassName" value="${jdbc.driverClassName}"/>-->
+    <!--        <property name="url" value="${jdbc.url}"/>-->
+    <!--        <property name="username" value="${jdbc.username}"/>-->
+    <!--        <property name="password" value="${jdbc.password}"/>-->
+    <!--    </bean>-->
+    <!---->
+
+    <!--配置事务增强-->
+    <!--    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+    <!--        <constructor-arg name="dataSource" ref="dataSource"/>-->
+    <!--    </bean>-->
+
+    <!--    <tx:advice id="transactionInterceptor" transaction-manager="transactionManager">-->
+    <!--        <tx:attributes>-->
+    <!--            <tx:method name="*"/>-->
+    <!--        </tx:attributes>-->
+    <!--    </tx:advice>-->
+
+    <!--    <aop:config>-->
+    <!--        <aop:pointcut id="myPointcut" expression="execution(* com.atlantisl.service.*.*(..))"/>-->
+    <!--        <aop:advisor advice-ref="transactionInterceptor" pointcut-ref="myPointcut"/>-->
+    <!--    </aop:config>-->
+    <!---->
+
+    <!--配置MyBatis-->
+    <!--    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+    <!--        <property name="dataSource" ref="dataSource"/>-->
+    <!--        <property name="typeAliasesPackage" value="com.atlantisl.entity"/>-->
+    <!--        <property name="plugins">-->
+    <!--            <array>-->
+    <!--                <bean class="com.github.pagehelper.PageInterceptor"/>-->
+    <!--            </array>-->
+    <!--        </property>-->
+    <!--        &lt;!&ndash;        <property name="mapperLocations" value="classpath:com/atlantisl/mapper/*.xml"/>&ndash;&gt;-->
+    <!--    </bean>-->
+
+    <!--  扫描该包下的Mapper.class，如果Mapper.xml在同一个包下，那么都加载  -->
+    <!--  如果Mapper.xml不在同一个包下，那么需要指定SqlSessionFactoryBean的mapperLocations属性  -->
+    <!--    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+    <!--        <property name="basePackage" value="com.atlantisl.mapper"/>-->
+    <!--    </bean>-->
+
+    <!--  开启事务时，service层的类必须在applicationContext.xml中加载，事务才会生效  -->
+    <context:component-scan base-package="com.atlantisl.config">
+        <context:exclude-filter type="assignable" expression="com.atlantisl.config.web.WebConfiguration"/>
+    </context:component-scan>
+
+</beans>

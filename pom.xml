@@ -22,6 +22,7 @@
         <module>mybatis-pagehelper</module>
         <module>mybatis-multi-table</module>
         <module>ssm-combine</module>
+        <module>ssm-combine-anno</module>
     </modules>
 
     <properties>
@@ -50,6 +51,7 @@
                 <javax.annotation-api.version>1.3.2</javax.annotation-api.version>
                 <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
                 <maven-failsafe-plugin.version>3.0.0-M7</maven-failsafe-plugin.version>
+                <maven-war-plugin.version>3.3.2</maven-war-plugin.version>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -168,6 +170,11 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>${maven-failsafe-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${maven-war-plugin.version}</version>
             </plugin>
         </plugins>
     </build>
