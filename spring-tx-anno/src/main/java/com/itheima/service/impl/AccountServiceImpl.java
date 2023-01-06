@@ -1,6 +1,6 @@
 package com.itheima.service.impl;
 
-import com.itheima.dao.AccountDao;
+import com.itheima.repository.AccountDao;
 import com.itheima.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

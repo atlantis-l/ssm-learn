@@ -1,7 +1,7 @@
 package com.atlantisl.controller;
 
 import com.atlantisl.dao.UserDao;
-import com.atlantisl.domain.User;
+import com.atlantisl.domain.User1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,8 +24,8 @@ public class UserController {
 
     @GetMapping("/quick")
     @ResponseBody
-    public User quick() {
+    public User1 quick() {
         int a = 1 / 0;
-        return User.builder().name("dachuan").age(24).build();
+        return User1.builder().name("dachuan").age(24).build();
     }
 }
